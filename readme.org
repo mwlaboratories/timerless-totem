@@ -44,26 +44,10 @@ firmware/totem_left-seeeduino_xiao_ble.uf2
 
 * Flash firmware
 1. Double-tap reset on the XIAO BLE (enters UF2 bootloader).
-2. Copy ~zmk.uf2~ onto the mounted USB drive.
+2. Copy the .uf2 file onto the corresponding halve.
 3. Board reboots with the new firmware.
 
 * Verify
 - Timerless homerow mods active
 - 34-key Colemak-DH layout loaded
 
-* Troubleshooting
-- **Not in dev shell** → run ~nix develop~
-- **Modules missing** → run ~west update~
-- **Build stale** → clean and rebuild:
-  #+begin_src shell
-  just clean
-  just build seeeduino_xiao_ble
-  #+end_src
-
-* Updating later
-#+begin_src shell
-git pull
-nix develop
-west update
-just build seeeduino_xiao_ble
-#+end_src
