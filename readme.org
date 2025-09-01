@@ -22,7 +22,7 @@ cd zmk-config
 cp -av ../timerless-totem/. .
 #+end_src
 
-This overwrites the build.yaml to add Totem target and adds correct shield, conf, dtsi and overlay files
+This overwrites the build.yaml to add Totem build and adds correct shield, conf, dtsi and overlay files
 
 * Enter development shell
 #+begin_src shell
