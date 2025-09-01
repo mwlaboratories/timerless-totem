@@ -1,0 +1,69 @@
+    #+title: Timerless Homerow Mods + 34-key Colemak-DH for Totem
+
+* Introduction
+This tutorial explains how to build Urob's ZMK firmware for the Totem with:
+- Timerless homerow mods
+- 34-key Colemak-DH layout
+- Seeeduino XIAO BLE target
+
+* Prerequisites
+- Nix with flakes enabled
+- Git
+
+* Clone repositories
+#+begin_src shell
+git clone https://github.com/mwlaboratories/timerless-totem.git
+git clone https://github.com/urob/zmk-config.git
+cd zmk-config
+#+end_src
+
+* Copy configuration
+#+begin_src shell
+cp -av ../timerless-totem/. .
+#+end_src
+
+This overwrites the local config with the timerless HRM + 34-key Colemak-DH files.
+
+* Enter development shell
+#+begin_src shell
+nix develop
+#+end_src
+
+* Initialize West (first time only)
+#+begin_src shell
+just init
+#+end_src  
+
+* Build firmware
+#+begin_src shell
+just build seeeduino_xiao_ble
+#+end_src
+
+The firmware output can be found under;
+firmware/totem_left-seeeduino_xiao_ble.uf2
+
+* Flash firmware
+1. Double-tap reset on the XIAO BLE (enters UF2 bootloader).
+2. Copy ~zmk.uf2~ onto the mounted USB drive.
+3. Board reboots with the new firmware.
+
+* Verify
+- Timerless homerow mods active
+- 34-key Colemak-DH layout loaded
+
+* Troubleshooting
+- **Not in dev shell** → run ~nix develop~
+- **Modules missing** → run ~west update~
+- **Build stale** → clean and rebuild:
+  #+begin_src shell
+  just clean
+  just build seeeduino_xiao_ble
+  #+end_src
+
+* Updating later
+#+begin_src shell
+git pull
+nix develop
+west update
+just build seeeduino_xiao_ble
+#+end_src
