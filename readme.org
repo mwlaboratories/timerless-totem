@@ -12,8 +12,8 @@ This tutorial explains how to build Urob's ZMK firmware for the Totem with:
 
 * Clone repositories
 #+begin_src shell
-git clone https://github.com/mwlaboratories/timerless-totem.git
-git clone https://github.com/urob/zmk-config.git
+git clone git@github.com:mwlaboratories/timerless-totem.git
+git clone git@github.com:urob/zmk-config.git
 cd zmk-config
 #+end_src
 
