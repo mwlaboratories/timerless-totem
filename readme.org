@@ -5,7 +5,7 @@ This tutorial explains how to build Urob's ZMK firmware for the Totem with:
 - Timerless homerow mods
 - 34-key Colemak-DH layout
 - Seeeduino XIAO BLE target
-
+./keymap.png
 * Prerequisites
 - Nix with flakes enabled
 - Git
